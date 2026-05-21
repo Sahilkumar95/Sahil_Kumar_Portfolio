@@ -1,0 +1,200 @@
+
+section.banner {
+    position: relative;
+    min-height: 100vh;
+    padding: 120px 8%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+
+    background: radial-gradient(circle at top, #0b1220, #020617);
+    overflow: hidden;
+}
+
+.badge {
+    display: inline-block;
+    padding: 8px 14px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+
+    background: rgba(99,102,241,0.15);
+    color: #22d3ee;
+
+    margin-bottom: 12px;
+    backdrop-filter: blur(10px);
+}
+
+section.banner::before,
+section.banner::after {
+    content: '';
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    filter: blur(120px);
+    opacity: 0.5;
+    z-index: 0;
+}
+
+section.banner::before {
+    background: radial-gradient(circle, #6366f1, transparent 70%);
+    top: -200px;
+    left: -200px;
+}
+
+section.banner::after {
+    background: radial-gradient(circle, #22d3ee, transparent 70%);
+    bottom: -200px;
+    right: -200px;
+}
+
+section.banner .developer-bio {
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+}
+
+section.banner .developer-bio p {
+    color: #22d3ee;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+section.banner .developer-bio h2 {
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 800;
+    color: #e5e7eb;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+section.banner .developer-bio h2 span {
+    background: linear-gradient(90deg, #6366f1, #22d3ee);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+section.banner .developer-bio h3 {
+    display: inline-block;
+    padding: 10px 18px;
+    border-radius: 999px;
+
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+
+    color: #cbd5e1;
+    font-size: 14px;
+    font-weight: 500;
+
+    margin-bottom: 30px;
+    backdrop-filter: blur(10px);
+}
+
+.btn-container {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+section.banner .btn,
+.btn-outline {
+    padding: 12px 22px;
+    border-radius: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+section.banner .btn {
+    background: linear-gradient(90deg, #6366f1, #22d3ee);
+    color: white;
+    box-shadow: 0 10px 30px rgba(99,102,241,0.3);
+}
+
+section.banner .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(99,102,241,0.4);
+}
+
+.btn-outline {
+    border: 1px solid rgba(255,255,255,0.2);
+    color: #e5e7eb;
+    background: transparent;
+}
+
+.btn-outline:hover {
+    background: rgba(255,255,255,0.08);
+    transform: translateY(-3px);
+}
+
+section.banner .developer-img {
+    position: relative;
+    z-index: 2;
+}
+
+section.banner .developer-img::after {
+    content: '';
+    position: absolute;
+    inset: -20px;
+    border-radius: 50%;
+    border: 2px solid rgba(99,102,241,0.4);
+    animation: pulse 3s infinite;
+}
+
+
+section.banner .developer-img img {
+    width: 360px;
+    height: 360px;
+    object-fit: cover;
+    border-radius: 50%;
+
+    border: 10px solid rgba(15,23,42,1);
+    box-shadow: 0 0 60px rgba(34,211,238,0.25);
+
+    animation: float 5s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-18px); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 0.7; }
+    50% { transform: scale(1.08); opacity: 0.3; }
+    100% { transform: scale(1); opacity: 0.7; }
+}
+
+@media (max-width: 992px) {
+    section.banner {
+        flex-direction: column;
+        text-align: center;
+        padding: 100px 6%;
+    }
+
+    .btn-container {
+        justify-content: center;
+    }
+
+    section.banner .developer-img img {
+        width: 260px;
+        height: 260px;
+    }
+}
+
+@media (max-width: 576px) {
+    section.banner .developer-bio h2 {
+        font-size: 2.2rem;
+    }
+
+    section.banner .developer-img img {
+        width: 220px;
+        height: 220px;
+    }
+}
